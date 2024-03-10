@@ -2,10 +2,10 @@
 import { useState, useRef } from "react";
 import TodoList from "./TodoList";
 import { v4 as uuidv4 } from "uuid";
+import { NextTodo } from "./NextTodo";
 
 function App() {
   const [todos, setTodos] = useState([]);
-  const [todoName, setTodoName] = useState("");
 
   const todoNameRef = useRef();
 
@@ -31,13 +31,6 @@ function App() {
     setTodos(newTodos);
   };
 
-  const handleRandom = () => {
-    if (todos.length === 0) return;
-    const todoIndexNum = Math.floor(Math.random() * todos.length);
-
-    const selectedTodoName = todos[todoIndexNum].name;
-    setTodoName(selectedTodoName);
-  };
 
   return (
     <div>
@@ -51,11 +44,7 @@ function App() {
       </div>
       <div>残りのタスク：{todos.filter((todo) => !todo.completed).length}</div>
       <hr />
-      <button onClick={handleRandom}>次に行うタスクをランダムに選ぶ</button>
-      <div>
-        次に行うタスク：
-        {todoName}
-      </div>
+      <NextTodo todos={todos} />
     </div>
   );
 }
