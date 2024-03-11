@@ -34,6 +34,7 @@ function App() {
 
   return (
     <div>
+      <h1 className="text-red-500">aaaaaaaaaaaa</h1>
       <TodoList todos={todos} toggleTodo={toggleTodo} />
       <input type="text" ref={todoNameRef} />
       <div>
@@ -42,7 +43,7 @@ function App() {
       <div>
         <button onClick={handleClear}>完了したタスクの削除</button>
       </div>
-      <div>残りのタスク：{todos.filter((todo) => !todo.completed).length}</div>
+      <div className="text-red-500 text-xl">残りのタスク：{todos.filter((todo) => !todo.completed).length}</div>
       <hr />
       <NextTodo todos={todos} />
     </div>
