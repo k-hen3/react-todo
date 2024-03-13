@@ -6,10 +6,11 @@ const Todo = ({ todo, toggleTodo }) => {
   };
 
   return (
-    <div>
+    <div className="flex text-lg">
       <label>
         <input
           type="checkbox"
+          class="h-3 w-3 mr-2"
           checked={todo.completed}
           readOnly
           onChange={handleTodoClick}
